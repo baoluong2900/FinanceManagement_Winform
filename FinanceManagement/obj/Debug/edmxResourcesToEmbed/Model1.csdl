@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbFinanceManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="dbFinanceManagementEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Analyses" EntityType="dbFinanceManagementModel.Analysis" />
+    <EntitySet Name="Budgets" EntityType="dbFinanceManagementModel.Budget" />
+    <EntitySet Name="Debts" EntityType="dbFinanceManagementModel.Debt" />
+    <EntitySet Name="Expenses" EntityType="dbFinanceManagementModel.Expens" />
+    <EntitySet Name="FinancialPlans" EntityType="dbFinanceManagementModel.FinancialPlan" />
+    <EntitySet Name="FinancialPlanDetails" EntityType="dbFinanceManagementModel.FinancialPlanDetail" />
+    <EntitySet Name="IncomeSources" EntityType="dbFinanceManagementModel.IncomeSource" />
+    <EntitySet Name="Locations" EntityType="dbFinanceManagementModel.Location" />
+    <EntitySet Name="Reminders" EntityType="dbFinanceManagementModel.Reminder" />
+    <EntitySet Name="RoleCateogries" EntityType="dbFinanceManagementModel.RoleCateogry" />
+    <EntitySet Name="Roles" EntityType="dbFinanceManagementModel.Role" />
+    <EntitySet Name="sysdiagrams" EntityType="dbFinanceManagementModel.sysdiagram" />
+    <EntitySet Name="Tasks" EntityType="dbFinanceManagementModel.Task" />
+    <EntitySet Name="Transactions" EntityType="dbFinanceManagementModel.Transaction" />
+    <EntitySet Name="Users" EntityType="dbFinanceManagementModel.User" />
+    <AssociationSet Name="FK_Analysis_Users" Association="dbFinanceManagementModel.FK_Analysis_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Analysis" EntitySet="Analyses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Budgets__userID__4CA06362" Association="dbFinanceManagementModel.FK__Budgets__userID__4CA06362">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Budget" EntitySet="Budgets" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Debts__userID__5535A963" Association="dbFinanceManagementModel.FK__Debts__userID__5535A963">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Debt" EntitySet="Debts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Expenses_Users" Association="dbFinanceManagementModel.FK_Expenses_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Expens" EntitySet="Expenses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Financial__userI__4F7CD00D" Association="dbFinanceManagementModel.FK__Financial__userI__4F7CD00D">
+      <End Role="User" EntitySet="Users" />
+      <End Role="FinancialPlan" EntitySet="FinancialPlans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FinancialPlanDetail_FinancialPlan" Association="dbFinanceManagementModel.FK_FinancialPlanDetail_FinancialPlan">
+      <End Role="FinancialPlan" EntitySet="FinancialPlans" />
+      <End Role="FinancialPlanDetail" EntitySet="FinancialPlanDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FinancialPlanDetail_Tasks" Association="dbFinanceManagementModel.FK_FinancialPlanDetail_Tasks">
+      <End Role="Task" EntitySet="Tasks" />
+      <End Role="FinancialPlanDetail" EntitySet="FinancialPlanDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__IncomeSou__userI__49C3F6B7" Association="dbFinanceManagementModel.FK__IncomeSou__userI__49C3F6B7">
+      <End Role="User" EntitySet="Users" />
+      <End Role="IncomeSource" EntitySet="IncomeSources" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reminders__userI__52593CB8" Association="dbFinanceManagementModel.FK__Reminders__userI__52593CB8">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Reminder" EntitySet="Reminders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Roles" Association="dbFinanceManagementModel.FK_Users_Roles">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transacti__userI__45F365D3" Association="dbFinanceManagementModel.FK__Transacti__userI__45F365D3">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Transaction" EntitySet="Transactions" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Analysis">
+    <Key>
+      <PropertyRef Name="analysisID" />
+    </Key>
+    <Property Name="analysisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="Int32" />
+    <Property Name="analysisName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="analysisDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="dbFinanceManagementModel.FK_Analysis_Users" FromRole="Analysis" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Budget">
+    <Key>
+      <PropertyRef Name="budgetID" />
+    </Key>
+    <Property Name="budgetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="Int32" />
+    <Property Name="budgetName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="targetSavings" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="startDate" Type="DateTime" Precision="3" />
+    <Property Name="endDate" Type="DateTime" Precision="3" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="dbFinanceManagementModel.FK__Budgets__userID__4CA06362" FromRole="Budget" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Debt">
+    <Key>
+      <PropertyRef Name="debtID" />
+    </Key>
+    <Property Name="debtID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="Int32" />
+    <Property Name="debtName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="debtAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="debtDueDate" Type="DateTime" Precision="0" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="isDebt" Type="Boolean" />
+    <Property Name="debtStatus" Type="Int32" />
+    <Property Name="repaymentPlan" Type="Int32" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="dbFinanceManagementModel.FK__Debts__userID__5535A963" FromRole="Debt" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Expens">
+    <Key>
+      <PropertyRef Name="expenseID" />
+    </Key>
+    <Property Name="expenseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="Int32" />
+    <Property Name="expenseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="expenseAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="expenseDate" Type="DateTime" Precision="0" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="categoryID" Type="Int32" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="dbFinanceManagementModel.FK_Expenses_Users" FromRole="Expens" ToRole="User" />
+  </EntityType>
+  <EntityType Name="FinancialPlan">
+    <Key>
+      <PropertyRef Name="financialPlanID" />
+    </Key>
+    <Property Name="financialPlanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="Int32" />
+    <Property Name="financialPlanName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="endDate" Type="DateTime" Precision="0" />
+    <Property Name="startDate" Type="DateTime" Precision="3" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="progress" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="cateogryID" Type="Int32" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="dbFinanceManagementModel.FK__Financial__userI__4F7CD00D" FromRole="FinancialPlan" ToRole="User" />
+    <NavigationProperty Name="FinancialPlanDetails" Relationship="dbFinanceManagementModel.FK_FinancialPlanDetail_FinancialPlan" FromRole="FinancialPlan" ToRole="FinancialPlanDetail" />
+  </EntityType>
+  <EntityType Name="FinancialPlanDetail">
+    <Key>
+      <PropertyRef Name="financialPlanDetailID" />
+    </Key>
+    <Property Name="financialPlanDetailID" Type="Int32" Nullable="false" />
+    <Property Name="financialPlanID" Type="Int32" />
+    <Property Name="taskID" Type="Int32" />
+    <NavigationProperty Name="FinancialPlan" Relationship="dbFinanceManagementModel.FK_FinancialPlanDetail_FinancialPlan" FromRole="FinancialPlanDetail" ToRole="FinancialPlan" />
+    <NavigationProperty Name="Task" Relationship="dbFinanceManagementModel.FK_FinancialPlanDetail_Tasks" FromRole="FinancialPlanDetail" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="IncomeSource">
+    <Key>
+      <PropertyRef Name="incomeSourceID" />
+    </Key>
+    <Property Name="incomeSourceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="Int32" />
+    <Property Name="incomeSourceName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="incomeSourceAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="categoryID" Type="Int32" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="incomeSourceDate" Type="DateTime" Precision="3" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="dbFinanceManagementModel.FK__IncomeSou__userI__49C3F6B7" FromRole="IncomeSource" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="locationID" />
+    </Key>
+    <Property Name="locationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="locationNo" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="parent" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+    <Property Name="levels" Type="Int32" />
+    <Property Name="slug" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="nameWithType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="type" Type="Int32" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Reminder">
+    <Key>
+      <PropertyRef Name="reminderID" />
+    </Key>
+    <Property Name="reminderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="reminderType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="reminderDate" Type="DateTime" Precision="3" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="dbFinanceManagementModel.FK__Reminders__userI__52593CB8" FromRole="Reminder" ToRole="User" />
+  </EntityType>
+  <EntityType Name="RoleCateogry">
+    <Key>
+      <PropertyRef Name="roleCategoryID" />
+    </Key>
+    <Property Name="roleCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="roleCategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="roleID" />
+    </Key>
+    <Property Name="roleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="roleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Users" Relationship="dbFinanceManagementModel.FK_Users_Roles" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="taskID" />
+    </Key>
+    <Property Name="taskID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="Int32" />
+    <Property Name="taskName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="taskDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="endDate" Type="DateTime" Precision="3" />
+    <Property Name="startDate" Type="DateTime" Precision="3" />
+    <Property Name="isCompleted" Type="Boolean" Nullable="false" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="FinancialPlanDetails" Relationship="dbFinanceManagementModel.FK_FinancialPlanDetail_Tasks" FromRole="Task" ToRole="FinancialPlanDetail" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="transactionID" />
+    </Key>
+    <Property Name="transactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="transactionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="userID" Type="Int32" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="categoryID" Type="Int32" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="dbFinanceManagementModel.FK__Transacti__userI__45F365D3" FromRole="Transaction" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="passWord" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="locationID" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="birthday" Type="DateTime" Precision="3" />
+    <Property Name="avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="district" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+    <Property Name="ward" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+    <Property Name="active" Type="Boolean" />
+    <Property Name="saltPassword" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+    <Property Name="roleID" Type="Int32" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="lastLogin" Type="DateTime" Precision="3" />
+    <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Analyses" Relationship="dbFinanceManagementModel.FK_Analysis_Users" FromRole="User" ToRole="Analysis" />
+    <NavigationProperty Name="Budgets" Relationship="dbFinanceManagementModel.FK__Budgets__userID__4CA06362" FromRole="User" ToRole="Budget" />
+    <NavigationProperty Name="Debts" Relationship="dbFinanceManagementModel.FK__Debts__userID__5535A963" FromRole="User" ToRole="Debt" />
+    <NavigationProperty Name="Expenses" Relationship="dbFinanceManagementModel.FK_Expenses_Users" FromRole="User" ToRole="Expens" />
+    <NavigationProperty Name="FinancialPlans" Relationship="dbFinanceManagementModel.FK__Financial__userI__4F7CD00D" FromRole="User" ToRole="FinancialPlan" />
+    <NavigationProperty Name="IncomeSources" Relationship="dbFinanceManagementModel.FK__IncomeSou__userI__49C3F6B7" FromRole="User" ToRole="IncomeSource" />
+    <NavigationProperty Name="Reminders" Relationship="dbFinanceManagementModel.FK__Reminders__userI__52593CB8" FromRole="User" ToRole="Reminder" />
+    <NavigationProperty Name="Role" Relationship="dbFinanceManagementModel.FK_Users_Roles" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="Transactions" Relationship="dbFinanceManagementModel.FK__Transacti__userI__45F365D3" FromRole="User" ToRole="Transaction" />
+  </EntityType>
+  <Association Name="FK_Analysis_Users">
+    <End Type="dbFinanceManagementModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbFinanceManagementModel.Analysis" Role="Analysis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Analysis">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Budgets__userID__4CA06362">
+    <End Type="dbFinanceManagementModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbFinanceManagementModel.Budget" Role="Budget" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Budget">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Debts__userID__5535A963">
+    <End Type="dbFinanceManagementModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbFinanceManagementModel.Debt" Role="Debt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Debt">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Expenses_Users">
+    <End Type="dbFinanceManagementModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbFinanceManagementModel.Expens" Role="Expens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Expens">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Financial__userI__4F7CD00D">
+    <End Type="dbFinanceManagementModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbFinanceManagementModel.FinancialPlan" Role="FinancialPlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="FinancialPlan">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FinancialPlanDetail_FinancialPlan">
+    <End Type="dbFinanceManagementModel.FinancialPlan" Role="FinancialPlan" Multiplicity="0..1" />
+    <End Type="dbFinanceManagementModel.FinancialPlanDetail" Role="FinancialPlanDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FinancialPlan">
+        <PropertyRef Name="financialPlanID" />
+      </Principal>
+      <Dependent Role="FinancialPlanDetail">
+        <PropertyRef Name="financialPlanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FinancialPlanDetail_Tasks">
+    <End Type="dbFinanceManagementModel.Task" Role="Task" Multiplicity="0..1" />
+    <End Type="dbFinanceManagementModel.FinancialPlanDetail" Role="FinancialPlanDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="taskID" />
+      </Principal>
+      <Dependent Role="FinancialPlanDetail">
+        <PropertyRef Name="taskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__IncomeSou__userI__49C3F6B7">
+    <End Type="dbFinanceManagementModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbFinanceManagementModel.IncomeSource" Role="IncomeSource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="IncomeSource">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reminders__userI__52593CB8">
+    <End Type="dbFinanceManagementModel.User" Role="User" Multiplicity="1" />
+    <End Type="dbFinanceManagementModel.Reminder" Role="Reminder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Reminder">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Roles">
+    <End Type="dbFinanceManagementModel.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="dbFinanceManagementModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="roleID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="roleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transacti__userI__45F365D3">
+    <End Type="dbFinanceManagementModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbFinanceManagementModel.Transaction" Role="Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

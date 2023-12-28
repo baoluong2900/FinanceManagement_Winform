@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbFinanceManagementModelStoreContainer" CdmEntityContainer="dbFinanceManagementEntities">
+    <EntitySetMapping Name="Analyses">
+      <EntityTypeMapping TypeName="dbFinanceManagementModel.Analysis">
+        <MappingFragment StoreEntitySet="Analysis">
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="analysisDescription" ColumnName="analysisDescription" />
+          <ScalarProperty Name="analysisName" ColumnName="analysisName" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="analysisID" ColumnName="analysisID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Budgets">
+      <EntityTypeMapping TypeName="dbFinanceManagementModel.Budget">
+        <MappingFragment StoreEntitySet="Budgets">
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="targetSavings" ColumnName="targetSavings" />
+          <ScalarProperty Name="budgetName" ColumnName="budgetName" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="budgetID" ColumnName="budgetID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Debts">
+      <EntityTypeMapping TypeName="dbFinanceManagementModel.Debt">
+        <MappingFragment StoreEntitySet="Debts">
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="repaymentPlan" ColumnName="repaymentPlan" />
+          <ScalarProperty Name="debtStatus" ColumnName="debtStatus" />
+          <ScalarProperty Name="isDebt" ColumnName="isDebt" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="debtDueDate" ColumnName="debtDueDate" />
+          <ScalarProperty Name="debtAmount" ColumnName="debtAmount" />
+          <ScalarProperty Name="debtName" ColumnName="debtName" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="debtID" ColumnName="debtID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Expenses">
+      <EntityTypeMapping TypeName="dbFinanceManagementModel.Expens">
+        <MappingFragment StoreEntitySet="Expenses">
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="expenseDate" ColumnName="expenseDate" />
+          <ScalarProperty Name="expenseAmount" ColumnName="expenseAmount" />
+          <ScalarProperty Name="expenseName" ColumnName="expenseName" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="expenseID" ColumnName="expenseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FinancialPlans">
+      <EntityTypeMapping TypeName="dbFinanceManagementModel.FinancialPlan">
+        <MappingFragment StoreEntitySet="FinancialPlan">
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="cateogryID" ColumnName="cateogryID" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="progress" ColumnName="progress" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="financialPlanName" ColumnName="financialPlanName" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="financialPlanID" ColumnName="financialPlanID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FinancialPlanDetails">
+      <EntityTypeMapping TypeName="dbFinanceManagementModel.FinancialPlanDetail">
+        <MappingFragment StoreEntitySet="FinancialPlanDetail">
+          <ScalarProperty Name="taskID" ColumnName="taskID" />
+          <ScalarProperty Name="financialPlanID" ColumnName="financialPlanID" />
+          <ScalarProperty Name="financialPlanDetailID" ColumnName="financialPlanDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IncomeSources">
+      <EntityTypeMapping TypeName="dbFinanceManagementModel.IncomeSource">
+        <MappingFragment StoreEntitySet="IncomeSources">
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="incomeSourceDate" ColumnName="incomeSourceDate" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+          <ScalarProperty Name="incomeSourceAmount" ColumnName="incomeSourceAmount" />
+          <ScalarProperty Name="incomeSourceName" ColumnName="incomeSourceName" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="incomeSourceID" ColumnName="incomeSourceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="dbFinanceManagementModel.Location">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="nameWithType" ColumnName="nameWithType" />
+          <ScalarProperty Name="slug" ColumnName="slug" />
+          <ScalarProperty Name="levels" ColumnName="levels" />
+          <ScalarProperty Name="parent" ColumnName="parent" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="locationNo" ColumnName="locationNo" />
+          <ScalarProperty Name="locationID" ColumnName="locationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reminders">
+      <EntityTypeMapping TypeName="dbFinanceManagementModel.Reminder">
+        <MappingFragment StoreEntitySet="Reminders">
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="reminderDate" ColumnName="reminderDate" />
+          <ScalarProperty Name="reminderType" ColumnName="reminderType" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="reminderID" ColumnName="reminderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleCateogries">
+      <EntityTypeMapping TypeName="dbFinanceManagementModel.RoleCateogry">
+        <MappingFragment StoreEntitySet="RoleCateogry">
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="roleCategoryName" ColumnName="roleCategoryName" />
+          <ScalarProperty Name="roleCategoryID" ColumnName="roleCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="dbFinanceManagementModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="roleName" ColumnName="roleName" />
+          <ScalarProperty Name="roleID" ColumnName="roleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="dbFinanceManagementModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tasks">
+      <EntityTypeMapping TypeName="dbFinanceManagementModel.Task">
+        <MappingFragment StoreEntitySet="Tasks">
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="isCompleted" ColumnName="isCompleted" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="taskDescription" ColumnName="taskDescription" />
+          <ScalarProperty Name="taskName" ColumnName="taskName" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="taskID" ColumnName="taskID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="dbFinanceManagementModel.Transaction">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="transactionName" ColumnName="transactionName" />
+          <ScalarProperty Name="transactionID" ColumnName="transactionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="dbFinanceManagementModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+          <ScalarProperty Name="lastLogin" ColumnName="lastLogin" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="roleID" ColumnName="roleID" />
+          <ScalarProperty Name="saltPassword" ColumnName="saltPassword" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="ward" ColumnName="ward" />
+          <ScalarProperty Name="district" ColumnName="district" />
+          <ScalarProperty Name="avatar" ColumnName="avatar" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="locationID" ColumnName="locationID" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="passWord" ColumnName="passWord" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
